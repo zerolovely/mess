@@ -1,9 +1,9 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
 apt install -y xz-utils openssl gawk file
-rm /root/.bashrc
-wget -O /root/.bashrc https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
-source /root/.bashrc
+rm ~/.bashrc
+wget -O ~/.bashrc https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
+source ~/.bashrc
 
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
