@@ -1,6 +1,6 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
-apt install -y xz-utils openssl gawk file
+apt install -y xz-utils openssl gawk file jq
 rm ~/.bashrc
 wget -O ~/.bashrc https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 source ~/.bashrc
