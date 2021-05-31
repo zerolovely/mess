@@ -4,6 +4,17 @@
 bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a
 ```
 
+### DD(内网)
+
+```shell
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a --mirror 'http://mirrors.tencentyun.com/debian/'
+```
+
+### DD(指定镜像)
+
+```shell
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a --mirror 'http://mirrors.tencent.com/debian/'
+```
 
 ### 初始化
 
