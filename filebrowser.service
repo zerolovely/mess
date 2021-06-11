@@ -3,7 +3,7 @@ Description=File Browser
 After=network.target
 
 [Service]
-ExecStart=/usr/local/bin/filebrowser -c
+ExecStart=/usr/local/bin/filebrowser -c /var/www/filebrowserconfig.json
 
 [Install]
 WantedBy=multi-user.target
