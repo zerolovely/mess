@@ -3,7 +3,7 @@
   "port": 8080,
   "locale": "zh-cn",
   "baseURL": "/",
-  "log": "stdout",
-  "database": "/home/file/f.db",
-  "root": "/home/file/filedata"
+  "log": "/var/www/file.log",
+  "database": "/var/www/f.db",
+  "root": "var/www/html"
 }
