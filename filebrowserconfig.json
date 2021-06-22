@@ -5,5 +5,5 @@
   "baseURL": "/",
   "log": "/var/www/file.log",
   "database": "/var/www/f.db",
-  "root": "var/www/html"
+  "root": "/var/www/html"
 }
