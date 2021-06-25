@@ -22,6 +22,12 @@ bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zero
 bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/mess/master/add.sh')
 ```
 
+### 网盘安装
+```shell
+bash <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/fileb.sh)
+```
+
+
 ### 升级内核
 
 ```shell
