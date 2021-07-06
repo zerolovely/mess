@@ -3,7 +3,6 @@ apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
 apt install -y xz-utils openssl gawk file jq net-tools
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
-source .bashrc
 
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
@@ -50,7 +49,6 @@ apt install vnstat -y
 vnstat -u -i eth0
 chown vnstat:vnstat /var/lib/vnstat/.eth0
 systemctl restart vnstat
-source /root/.bashrc
 apt install ufw -y
 ufw default allow outgoing
 ufw default deny incoming
