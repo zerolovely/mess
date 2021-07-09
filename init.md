@@ -19,7 +19,7 @@ bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zero
 ### 初始化
 
 ```shell
-bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/mess/master/add.sh')
+source <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/add.sh)
 ```
 
 ### 网盘安装
