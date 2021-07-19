@@ -52,5 +52,3 @@ systemctl restart vnstat
 apt install ufw -y
 ufw default allow outgoing
 ufw default deny incoming
-
-source <(curl -sL https://raw.githubusercontent.com/zerolovely/mess/master/nginx/get.sh)
