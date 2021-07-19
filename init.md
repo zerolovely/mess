@@ -1,3 +1,10 @@
+### DD安装依赖
+
+```shell
+apt update
+apt install -y xz-utils openssl gawk file
+```
+
 ### DD
 
 ```shell
