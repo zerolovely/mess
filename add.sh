@@ -52,3 +52,4 @@ systemctl restart vnstat
 apt install ufw -y
 ufw default allow outgoing
 ufw default deny incoming
+source /root/.bashrc
