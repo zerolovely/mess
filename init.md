@@ -1,7 +1,7 @@
 ### DD
 
 ```shell
-bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a -firmware
 ```
 
 ### DD(内网)
