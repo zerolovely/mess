@@ -34,6 +34,11 @@ source <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/add.sh
 bash <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/fileb.sh)
 ```
 
+### Nginx相关
+
+```shell
+source <(curl -sL https://raw.githubusercontent.com/zerolovely/mess/master/nginx/get.sh)
+```
 
 ### 升级内核
 
