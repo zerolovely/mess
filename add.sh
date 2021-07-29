@@ -1,6 +1,6 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
-apt install -y xz-utils openssl gawk file jq net-tools
+apt install -y xz-utils openssl gawk file jq net-tools htop
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 
@@ -38,8 +38,7 @@ EOF
 
 chmod +x /etc/rc.local
 systemctl start rc-local
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-hwclock --systohc
+timedatectl set-timezone Asia/Shanghai
 
 apt install fail2ban -y
 wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/mess/master/jail.local
