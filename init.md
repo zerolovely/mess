@@ -8,30 +8,30 @@ apt install -y xz-utils openssl gawk file
 ### DD
 
 ```shell
-bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a -firmware
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 11 -v 64 -a -firmware
 ```
 
 ### DD(内网)
 
 ```shell
-bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a --mirror 'http://mirrors.tencentyun.com/debian/'
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 11 -v 64 -a --mirror 'http://mirrors.tencentyun.com/debian/'
 ```
 
 ### DD(指定镜像)
 
 ```shell
-bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 10 -v 64 -a --mirror 'http://mirrors.tencent.com/debian/'
+bash <(wget –no-check-certificate -qO- 'https://raw.githubusercontent.com/zerolovely/dd/master/net.sh') -d 11 -v 64 -a --mirror 'http://mirrors.tencent.com/debian/'
 ```
 
 ### 初始化
 
 ```shell
-source <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/add.sh)
+source <(curl -sL https://raw.githubusercontent.com/zerolovely/mess/master/add.sh)
 ```
 
 ### 网盘安装
 ```shell
-bash <(curl -L https://raw.githubusercontent.com/zerolovely/mess/master/fileb.sh)
+source <(curl -sL https://raw.githubusercontent.com/zerolovely/mess/master/fileb.sh)
 ```
 
 ### Nginx相关
