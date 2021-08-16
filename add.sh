@@ -12,6 +12,9 @@ deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc)-backports main contr
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc)-proposed-updates main contrib non-free
 EOF
 
+if [[ $(lsb_release -sr) -gt 10 ]]; then
+    sed -i 's/\/updates/-security/g' /etc/apt/sources.list
+fi
 echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" | tee /etc/apt/sources.list.d/nginx.list
 echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" |tee /etc/apt/preferences.d/99nginx
 curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key
