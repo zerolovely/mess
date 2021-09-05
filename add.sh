@@ -9,7 +9,6 @@ deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-fre
 deb http://cdn-aws.deb.debian.org/debian-security $(lsb_release -sc)/updates main contrib non-free
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc)-updates main contrib non-free
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc)-backports main contrib non-free
-deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc)-proposed-updates main contrib non-free
 EOF
 
 if [[ $(lsb_release -sr) -gt 10 ]]; then
@@ -47,6 +46,8 @@ apt install fail2ban -y
 wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/mess/master/jail.local
 wget -O /etc/fail2ban/filter.d/nginxerr.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginxerr.conf
 wget -O /etc/fail2ban/filter.d/nginx-00.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginx-00.conf
+apt install python3-pip -y
+pip install requests yagmail
 apt install vnstat -y
 vnstat -u -i eth0
 chown vnstat:vnstat /var/lib/vnstat/.eth0
