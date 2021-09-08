@@ -42,6 +42,12 @@ chmod +x /etc/rc.local
 systemctl start rc-local
 timedatectl set-timezone Asia/Shanghai
 
+wget -O /home/check.sh https://pastebin.com/raw/ZxWEbqd2
+cat <<EOF >/home/my.cron
+0 */4 * * * bash /root/getdata.sh
+*/5 * * * * source /home/check.sh
+EOF
+crontab /home/my.cron
 apt install fail2ban -y
 wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/mess/master/jail.local
 wget -O /etc/fail2ban/filter.d/nginxerr.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginxerr.conf
