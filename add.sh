@@ -3,7 +3,7 @@ apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
 apt install -y xz-utils openssl gawk file jq net-tools htop
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
-
+wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
 stoline=$(grep -n "Storage=auto" /etc/systemd/journald.conf | cut -d ":" -f 1 | head -n 1)
 sed -i "${stoline}i\Storage=persistent" /etc/systemd/journald.conf
 sed -i "s/^#\?Compress=yes/Compress=yes/g" /etc/systemd/journald.conf
