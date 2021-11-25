@@ -1,14 +1,10 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
-apt install -y xz-utils openssl gawk file jq net-tools htop
+apt install -y xz-utils openssl gawk file jq net-tools htop screen
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
-stoline=$(grep -n "Storage=auto" /etc/systemd/journald.conf | cut -d ":" -f 1 | head -n 1)
-sed -i "${stoline}i\Storage=persistent" /etc/systemd/journald.conf
-sed -i "s/^#\?Compress=yes/Compress=yes/g" /etc/systemd/journald.conf
-systemctl restart systemd-journald
-journalctl --flush
+
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
 deb http://cdn-aws.deb.debian.org/debian-security $(lsb_release -sc)/updates main contrib non-free
