@@ -54,7 +54,7 @@ wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/me
 wget -O /etc/fail2ban/filter.d/nginxerr.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginxerr.conf
 wget -O /etc/fail2ban/filter.d/nginx-00.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginx-00.conf
 apt install python3-pip -y
-pip install requests yagmail
+pip install requests yagmail apscheduler
 apt install vnstat -y
 vnstat -u -i eth0
 chown vnstat:vnstat /var/lib/vnstat/.eth0
