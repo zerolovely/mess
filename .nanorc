@@ -2,5 +2,6 @@ set linenumbers
 set autoindent
 set smooth
 set tabsize 4
+set tabstospaces
 set nohelp
 set softwrap
