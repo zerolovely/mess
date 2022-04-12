@@ -1,9 +1,14 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
-apt install -y xz-utils openssl gawk file jq net-tools htop screen
+apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
+
+sed -i 's/^#\?Storage=.*/Storage=volatile/' /etc/systemd/journald.conf
+sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=8M/' /etc/systemd/journald.conf
+sed -i 's/^#\?RuntimeMaxUse=.*/RuntimeMaxUse=8M/' /etc/systemd/journald.conf
+systemctl restart systemd-journald
 
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
@@ -15,11 +20,10 @@ EOF
 if [[ $(lsb_release -sr) -gt 10 ]]; then
     sed -i 's/\/updates/-security/g' /etc/apt/sources.list
 fi
-echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" | tee /etc/apt/sources.list.d/nginx.list
-echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" |tee /etc/apt/preferences.d/99nginx
-curl -o /tmp/nginx_signing.key https://nginx.org/keys/nginx_signing.key
-gpg --dry-run --quiet --import --import-options import-show /tmp/nginx_signing.key
-mv /tmp/nginx_signing.key /etc/apt/trusted.gpg.d/nginx_signing.asc
+curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+gpg --dry-run --quiet --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian `lsb_release -cs` nginx" | tee /etc/apt/sources.list.d/nginx.list
+echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | tee /etc/apt/preferences.d/99nginx
 apt update
 apt install nginx libmaxminddb-dev mmdb-bin -y
 mkdir /var/www
