@@ -44,7 +44,7 @@ uninstall(){
 main(){
     if [[ $1 == 'install' ]]; then
         install_nfcheck && install_dpcheck && install_tucheck
-        nf && dp && tucheck
+        nf && seq -s "=" ${COLUMNS}|sed -E "s/[0-9]//g" && dp && seq -s "=" ${COLUMNS}|sed -E "s/[0-9]//g" && tucheck
     elif [[ $1 == 'uninstall' ]]; then
         uninstall
     else
