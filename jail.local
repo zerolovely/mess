@@ -99,7 +99,7 @@ backend = auto
 # no:    if a hostname is encountered, will not be used for banning,
 #        but it will be logged as info.
 # raw:   use raw value (no hostname), allow use it for no-host filters/actions (example user)
-usedns = warn
+usedns = raw
 
 # "logencoding" specifies the encoding of the log files handled by the jail
 #   This is used to decode the lines from the log file.
@@ -164,8 +164,8 @@ fail2ban_agent = Fail2Ban/%(fail2ban_version)s
 # iptables-multiport, shorewall, etc) It is used to define
 # action_* variables. Can be overridden globally or per
 # section within jail.local file
-banaction = iptables-multiport
-banaction_allports = iptables-allports
+banaction = ufw
+banaction_allports = ufw
 
 # The simplest action to take: ban only
 action_ = %(banaction)s[name=%(__name__)s, bantime="%(bantime)s", port="%(port)s", protocol="%(protocol)s", chain="%(chain)s"]
