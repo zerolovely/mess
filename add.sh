@@ -1,5 +1,5 @@
 apt update
-apt install curl gnupg2 ca-certificates lsb-release zip lrzsz -y
+apt install curl gnupg2 ca-certificates lsb-release zip lrzsz figlet -y
 apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
@@ -90,8 +90,7 @@ wget -O /etc/fail2ban/filter.d/nginx-00.conf https://raw.githubusercontent.com/z
 apt install python3-pip -y
 pip install requests yagmail apscheduler
 apt install vnstat -y
-vnstat -u -i eth0
-chown vnstat:vnstat /var/lib/vnstat/.eth0
+chown vnstat:vnstat /var/lib/vnstat/
 systemctl restart vnstat
 apt install ufw -y
 ufw default allow outgoing
