@@ -5,3 +5,7 @@ set tabsize 4
 set tabstospaces
 set nohelp
 set softwrap
+set constantshow
+set autosave
+set brackets
+set quotestr
