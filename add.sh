@@ -10,35 +10,6 @@ sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=8M/' /etc/systemd/journald.conf
 sed -i 's/^#\?RuntimeMaxUse=.*/RuntimeMaxUse=8M/' /etc/systemd/journald.conf
 systemctl restart systemd-journald
 
-apt install nscd -y
-rm /var/cache/nscd/hosts
-cat << EOF > /etc/nscd.conf
-# /etc/nscd.conf
-#
-# An example Name Service Cache config file.  This file is needed by nscd.
-#
-logfile                 /var/log/nscd.log
-threads                 6
-max-threads             32
-server-user             nobody
-debug-level             0
-paranoia                no
-
-enable-cache            passwd          no
-enable-cache            group           no
-enable-cache            services        no
-enable-cache            netgroup        no
-
-enable-cache            hosts           yes
-positive-time-to-live   hosts           300
-negative-time-to-live   hosts           5
-suggested-size          hosts           503
-check-files             hosts           yes
-persistent              hosts           yes
-shared                  hosts           yes
-max-db-size             hosts           33554432
-EOF
-systemctl restart nscd
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
 deb http://cdn-aws.deb.debian.org/debian-security $(lsb_release -sc)/updates main contrib non-free
@@ -87,8 +58,8 @@ apt install fail2ban -y
 wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/mess/master/jail.local
 wget -O /etc/fail2ban/filter.d/nginxerr.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginxerr.conf
 wget -O /etc/fail2ban/filter.d/nginx-00.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginx-00.conf
-apt install python3-pip -y
-pip install requests yagmail apscheduler
+apt install python3-dev python3 python3-pip -y
+apt install python3-requests python3-yagmail python3-apscheduler -y
 apt install vnstat -y
 chown vnstat:vnstat /var/lib/vnstat/
 systemctl restart vnstat
