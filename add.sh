@@ -5,10 +5,10 @@ rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
 
-sed -i 's/^#\?Storage=.*/Storage=volatile/' /etc/systemd/journald.conf
-sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=8M/' /etc/systemd/journald.conf
-sed -i 's/^#\?RuntimeMaxUse=.*/RuntimeMaxUse=8M/' /etc/systemd/journald.conf
-systemctl restart systemd-journald
+#sed -i 's/^#\?Storage=.*/Storage=volatile/' /etc/systemd/journald.conf
+#sed -i 's/^#\?SystemMaxUse=.*/SystemMaxUse=8M/' /etc/systemd/journald.conf
+#sed -i 's/^#\?RuntimeMaxUse=.*/RuntimeMaxUse=8M/' /etc/systemd/journald.conf
+#systemctl restart systemd-journald
 
 cat > /etc/apt/sources.list << EOF
 deb http://cdn-aws.deb.debian.org/debian $(lsb_release -sc) main contrib non-free
@@ -46,7 +46,7 @@ EOF
 
 chmod +x /etc/rc.local
 systemctl start rc-local
-timedatectl set-timezone Asia/Shanghai
+timedatectl set-timezone Asia/Singapore
 
 wget -O /home/check.sh https://pastebin.com/raw/ZxWEbqd2
 cat <<EOF >/home/my.cron
