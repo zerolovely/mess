@@ -7,6 +7,3 @@ cd /etc/nginx/modules
 rm ngx_http_geoip2_module.so
 wget https://raw.githubusercontent.com/zerolovely/mess/master/nginx/${version}/ngx_http_geoip2_module.so
 cd ~
-curl https://get.acme.sh | sh
-source .bashrc
-acme.sh --set-default-ca  --server  letsencrypt
