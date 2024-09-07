@@ -1,11 +1,10 @@
-set linenumbers
-set autoindent
-set smooth
-set tabsize 4
 set tabstospaces
-set nohelp
+set trimblanks
 set softwrap
 set constantshow
-set autosave
-set brackets
-set quotestr
+set autoindent
+set linenumbers
+set unix
+set nohelp
+set stateflags
+set minibar
