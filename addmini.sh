@@ -1,6 +1,6 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz figlet -y
-apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring
+apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring systemd-timesyncd
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
@@ -36,6 +36,11 @@ EOF
 chmod +x /etc/rc.local
 systemctl start rc-local
 timedatectl set-timezone Asia/Singapore
+sed -i 's/^#NTP=.*/NTP=time.apple.com/' /etc/systemd/timesyncd.conf
+systemctl restart systemd-timesyncd
+
+
+
 apt install fail2ban -y
 wget -O /etc/fail2ban/jail.local https://raw.githubusercontent.com/zerolovely/mess/master/jail.local
 wget -O /etc/fail2ban/filter.d/nginxerr.conf https://raw.githubusercontent.com/zerolovely/mess/master/nginxerr.conf
