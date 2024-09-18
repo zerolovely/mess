@@ -1,6 +1,7 @@
 #!/bin/bash
-set -e
-rm /etc/nginx/modules/ngx_http_geoip2_module.so
+if [ -f "/etc/nginx/modules/ngx_http_geoip2_module.so" ]; then
+    rm /etc/nginx/modules/ngx_http_geoip2_module.so
+fi
 read -p "input nginx version:" version
 apt install libpcre3 libpcre3-dev  libpcre2-dev zlib1g-dev git -y
 wget https://nginx.org/download/nginx-${version}.tar.gz
