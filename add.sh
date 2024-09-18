@@ -1,6 +1,6 @@
 apt update
 apt install curl gnupg2 ca-certificates lsb-release zip lrzsz figlet -y
-apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring
+apt install -y xz-utils openssl gawk file jq net-tools htop screen debian-archive-keyring systemd-timesyncd
 rm .bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.bashrc
 wget https://raw.githubusercontent.com/zerolovely/mess/master/.nanorc
@@ -47,7 +47,8 @@ EOF
 chmod +x /etc/rc.local
 systemctl start rc-local
 timedatectl set-timezone Asia/Singapore
-
+sed -i 's/^#NTP=.*/NTP=time.apple.com/' /etc/systemd/timesyncd.conf
+systemctl restart systemd-timesyncd
 wget -O /home/check.sh https://pastebin.com/raw/ZxWEbqd2
 cat <<EOF >/home/my.cron
 0 */4 * * * bash /root/getdata.sh
